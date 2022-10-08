@@ -333,3 +333,4 @@ tags
 
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,macos,linux,vim,pycharm,jupyternotebooks
 /data
+/model
