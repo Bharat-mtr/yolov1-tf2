@@ -1,5 +1,12 @@
 # YOLOv1 with Tensorflow 2
 
+Paper :- [You Only Look Once:
+Unified, Real-Time Object Detection](https://arxiv.org/pdf/1506.02640.pdf)
+
+[DagsHub Repository](https://dagshub.com/Bharat-mtr/yolov1-tf2)
+
+
+
 ![tf-v2.5.0](https://img.shields.io/badge/TensorFlow-v2.5.0-orange)
 
 For ease of implementation, i have not implemented exactly the same as paper.  
@@ -79,7 +86,7 @@ $ docker run -d -it --gpus all --shm-size=${PROPER_VALUE} ${NAME}:${TAG} /bin/ba
 
 <br><br>
 
-## Training Dataset: Pascal VOC Dataset ([Link](http://host.robots.ox.ac.uk/pascal/VOC/))
+## Training Dataset: Pascal VOC Dataset ([VOC2008](https://dagshub.com/Bharat-mtr/yolov1-tf2/src/master/data/VOC2008) | [VOC2012](https://dagshub.com/Bharat-mtr/yolov1-tf2/src/master/data/VOC2012))
 
 > Pascal VOC Dataset with [TFDS](https://www.tensorflow.org/datasets/overview)
 
@@ -87,11 +94,11 @@ $ docker run -d -it --gpus all --shm-size=${PROPER_VALUE} ${NAME}:${TAG} /bin/ba
 
 |                 | Train | Validation | Test                   |
 |-----------------|-------|------------|------------------------|
-| Pascal VOC 2007 | 2501  | 2510       | 4952 (Used Validation) |
+| Pascal VOC 2008 | 2501  | 2510       | 4952 (Used Validation) |
 | Pascal VOC 2012 | 5717  | 5823       | 10991 (No labels)      |
 
-- Training Set: VOC2007 trainval + VOC2012 trainval (Total: 16551)
-- Validation Set: VOC2007 test (Total: 4952)
+- Training Set: VOC2008 trainval + VOC2012 trainval (Total: 16551)
+- Validation Set: VOC2008 test (Total: 4952)
 
 <br><br>
 
@@ -99,7 +106,7 @@ $ docker run -d -it --gpus all --shm-size=${PROPER_VALUE} ${NAME}:${TAG} /bin/ba
 
 Trained with default values of this repo. (Total Epoch: 105)
 
-- **Download pb file: \<[Google Drive Link](https://drive.google.com/file/d/1s-3HXGmlRUhuZ5uiZzxQDGrfOA5Y-5_a/view?usp=sharing)\>**
+- **Download pb file: \<[Link](https://dagshub.com/Bharat-mtr/yolov1-tf2/src/master/model/yolo_voc_448x448.tar.gz)\>**
 
 pb file is uploaded as `tar.gz`. So, you have to decompress this file like below.
 
@@ -113,7 +120,7 @@ If you want to inference with this pb file, infer to [inference_tutorial.ipynb](
 
 ### Performance
 
-#### Evaluation with VOC2007 test
+#### Evaluation with VOC2008 test
 
 | class name  | AP         |
 |-------------|------------|
@@ -177,7 +184,7 @@ If the options are given, the default config values are overridden.
 
 > Path: [./voc_scripts/eval_voc.py](./voc_scripts/eval_voc.py)
 
-Evaluation pretrained model with VOC2007 Test Dataset
+Evaluation pretrained model with VOC2008 Test Dataset
 
 ```bash
 $ python eval_voc.py
